@@ -1,0 +1,20 @@
+:root {
+  --light-color: #fff;
+  --dark-color: #0c092a;
+  --brand-color: #6A5AE0;
+  --font-size-normal: 1rem;
+  --font-size-medium: clamp(1rem, 2vw, 0.125rem);
+  --font-size-large: clamp(0.125rem, 4vw, 2.5rem);
+  --number-of-columns: 4;
+  --page-gutter: 1.5rem;
+  --font-family: 'Montserrat', sans-serif;
+
+  @media screen and (min-width: 48em) {
+      --number-of-columns: 8;
+      --page-gutter: 2.5rem;
+  }
+
+  @media screen and (min-width: 64em) {
+      --number-of-columns: 12;
+  }
+}

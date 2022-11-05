@@ -1,0 +1,26 @@
+<div class="home">
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+  <div class="container">
+    <div class="container__logo">
+      <div class="container__logo-img"></div>
+    </div>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      <strong>{{ errorText }}</strong>
+    </div>
+    <form class="form-enter" action="">
+      <input
+        [(ngModel)]="pin"
+        type="text"
+        placeholder="PIN de juego"
+        class="form-control form-enter__input"
+      />
+      <button (click)="ingresar()" class="btn-enter">Ingresar</button>
+    </form>
+
+    <p class="fixed-bottom adaptive-font--small footer-text">
+      Crea tu propio cuestionario GRATIS
+      <a class="link" routerLink="/usuario">aqui</a>
+    </p>
+  </div>
+</div>

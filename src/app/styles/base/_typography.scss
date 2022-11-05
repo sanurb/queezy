@@ -1,0 +1,17 @@
+.adaptive-font{
+  text-align:center;
+
+  &--small{
+    font-size: var(--font-size-normal);
+    line-height: 120%;
+}
+
+  &--medium{
+      font-size: var(--font-size-medium);
+      line-height: 140%;
+  }
+
+  &--large{
+      font-size: var(--font-size-large);
+  }
+}
