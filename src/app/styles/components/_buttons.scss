@@ -1,0 +1,122 @@
+.btn{
+  border-radius: 2.5rem;
+  cursor: pointer;
+
+  &:hover{
+      box-shadow: 0 0.5rem 0.938rem rgba($color: #000, $alpha: .2);
+  }
+
+  &:disabled{
+    cursor: not-allowed;
+  }
+
+  &--action{
+      display: inline-flex;
+      align-items: center;
+  }
+
+  &--light{
+      background-color: var(--light-color);
+      color: var(--dark-color);
+
+      &:hover{
+          color: var(--brand-color);
+      }
+  }
+
+  &--small{
+      font-size: 0.875rem;
+      line-height: 1.5rem;
+      font-weight: 700 !important;
+      padding: 0.438rem 1rem;
+      border-radius: var(--border-radius-1);
+
+  }
+
+  &--brand{
+      display: flex;
+      justify-content: center;
+      background-color: var(--brand-color);
+      margin-right: 0;
+
+      &:hover{
+          background-color: #7983f5;
+      }
+  }
+
+  &__icon{
+      margin-right: 0.5rem;
+  }
+
+  &--large{
+      font-size: 1.25rem;
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius-1);
+  }
+
+  &--dark{
+      background-color: var(--dark-color);
+      color: var(--light-color);
+
+      &:hover{
+          background-color: #36393f;
+      }
+  }
+
+  &--success{
+    background-color: var(--success-color);
+    color: var(--light-color);
+
+    &:hover{
+        background-color: #237e0b;
+    }
+}
+
+  &--close{
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      margin: -.5rem;
+      padding: -.5rem;
+      z-index: 999;
+  }
+
+  @media screen and (min-width: 64em){
+      &--small{
+          margin-right: 0;
+      }
+
+      :is(&--open, &--close){
+          display: none;
+      }
+  }
+}
+
+.btn-group {
+  margin-top: 2.5rem;
+
+  &-btn{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+
+      &-pill{
+          background-color: var(--brand-color);
+          border-radius: 1.5rem;
+          padding-inline: .5em;
+          margin-left: 0.625rem;
+          font-size: 0.75rem;
+          line-height: 0.938rem;
+          font-weight: 300;
+      }
+  }
+
+  @media screen and (min-width: 48em){
+      display: flex;
+
+      &-btn:first-child{
+          margin-right: .25rem;
+      }
+  }
+}

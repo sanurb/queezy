@@ -1,13 +1,21 @@
 :root {
   --light-color: #fff;
+  --black-color: #000000;
   --dark-color: #0c092a;
+  --not-very-dark: #181818;
   --brand-color: #6A5AE0;
+  --success-color: #26890c;
+  --font-size-small: 0,875rem;
   --font-size-normal: 1rem;
   --font-size-medium: clamp(1rem, 2vw, 0.125rem);
   --font-size-large: clamp(0.125rem, 4vw, 2.5rem);
   --number-of-columns: 4;
   --page-gutter: 1.5rem;
   --font-family: 'Montserrat', sans-serif;
+  --shadow-1: rgb(0 0 0 / 35%) 0px 8px 24px;
+  --shadow-2: rgba(100, 100, 111, .2) 0px 7px 29px 0px;
+  --border-radius-1: .25rem;
+  --border-radius-2: .5rem;
 
   @media screen and (min-width: 48em) {
       --number-of-columns: 8;

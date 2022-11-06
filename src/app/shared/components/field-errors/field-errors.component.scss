@@ -1,0 +1,14 @@
+.field-error{
+  color: red;
+  display: block;
+  margin-top: 3px;
+  font-size: 0.875rem;
+
+  .exclamation-simbol{
+    height: 1em;
+    width: 1em;
+    vertical-align: -0.175em;
+    margin-right: 4px;
+    fill: currentcolor;
+  }
+}
