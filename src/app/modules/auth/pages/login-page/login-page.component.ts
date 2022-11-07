@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
+import { LoginService } from '@core/services/login.service';
 
 @Component({
   selector: 'app-login-page',
@@ -8,24 +11,47 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPageComponent implements OnInit {
 
-  public loginForm!: FormGroup;
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', Validators.required],
+  });
 
-  constructor() { }
+  constructor(
+    private authService: LoginService,
+    private toast: HotToastService,
+    private router: Router,
+    private fb: NonNullableFormBuilder
+    ) { }
 
-  ngOnInit(): void {
-    this.generateLoginForm();
+  ngOnInit(): void {}
+
+  get email() {
+    return this.loginForm.get('email');
   }
 
-  public generateLoginForm(): void {
-    this.loginForm = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-      ]),
-    });
+  get password() {
+    return this.loginForm.get('password');
+  }
+
+  submit(): void {
+    const { email, password } = this.loginForm.value;
+
+    if (!this.loginForm.valid || !email || !password) {
+      return;
+    }
+
+    this.authService
+      .login(email, password)
+      .pipe(
+        this.toast.observe({
+          success: 'Se ha logeado con éxito',
+          loading: 'Iniciando sesión...',
+          error: ({ message }) => `There was an error: ${message} `,
+        })
+      )
+      .subscribe(() => {
+        this.router.navigate(['../home']);
+      });
   }
 
 }

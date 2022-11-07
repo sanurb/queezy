@@ -18,7 +18,7 @@
 			<span class="separator-text">o</span>
 			<hr class="separator-divider" />
 		</div>
-		<form class="login-auth-form" [formGroup]="loginForm">
+		<form class="login-auth-form" [formGroup]="loginForm" (ngSubmit)="submit()">
 
 			<app-input
         [parentForm]="loginForm"
@@ -50,7 +50,7 @@
 						</label>
 					</div>
 				</div>
-				<button [disabled]="loginForm.invalid" class="btn btn--small btn--success btn-group-btn btn-login">
+				<button type="submit" [disabled]="loginForm.invalid" class="btn btn--small btn--success btn-group-btn btn-login">
 					<p>Iniciar sesión</p>
 				</button>
 			</div>
