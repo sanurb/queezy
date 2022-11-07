@@ -1,0 +1,116 @@
+.register-auth-page {
+
+  .register-header {
+    padding: 25px 0px 10px;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow-x: hidden;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+
+    &__logo{
+      padding: 0px 0px 12px;
+      height: 56px;
+      text-align: center;
+
+      svg{
+        width: 156px;
+      }
+    }
+  }
+
+  .register-auth-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 360px;
+    width: 100%;
+
+    .title{
+      color: var(--not-very-dark);
+      margin-top: 32px;
+
+      &__subtitle{
+        font-size: 18px;
+        line-height: 26px;
+        letter-spacing: 0px;
+        color: inherit;
+      }
+    }
+
+    .register-social-zone {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+      width: 100%;
+      margin: 1.5rem 0px;
+
+      .social-btn {
+        border: 0;
+        padding: .5rem 2rem;
+        width: 100%;
+        font-size: var(--font-medium);
+        border-radius: var(--border-radius-2);
+        box-shadow: var(--shadow-1);
+        background-color: var(--light-color);
+        font-weight: 600;
+
+        &.btn-fb {
+          background-color: #3A61B3;
+          color: var(--light-color);
+        }
+        &.btn-apple {
+          background-color: #1a1a1a;
+          color: var(--light-color);
+        }
+      }
+      .separator {
+        width: 100%;
+        margin: 2rem 0;
+        border-bottom: solid 1px var(--dark-color);
+        opacity: .2;
+      }
+    }
+
+    .separator-container {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+
+      .separator-divider {
+        margin: 12px 0px 20px;
+        flex: 1 1 0%;
+        border-top: 1px solid rgb(204, 204, 204);
+      }
+      .separator-text{
+        flex: 0.3 1 0%;
+        align-self: center;
+        text-align: center;
+        line-height: 1px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+    }
+
+    .register-auth-form{
+      margin: 1.5rem 0px;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      .login-link{
+        color: var(--brand-color);
+        font-weight: 400;
+        line-height: 17px;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

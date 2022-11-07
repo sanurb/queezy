@@ -1,27 +1,40 @@
-# Queezy
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+# Quuezy
 
-## Development server
+- 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Directory tree structure
+```bash
+The app structure was designed to make it easy to maintain web projects.
 
-## Code scaffolding
+──app
+    │
+    ├── modules
+    │   ├── home
+    │   ├── [+] components
+    │   ├── [+] pages
+    │   ├── home-routing.module.ts
+    │   ├── home-module.ts
+    │
+    ├── core
+    │
+    ├── shared
+    │
+    ├── styles
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+### Build With 🛠️ 
+*  Angular
+*  Angular Material
+*  Firebase
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Vision
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### :sagittarius: Author
+> :man: Santiago Urbano Rivadeneira
+> :e-mail: [E-mail](dsanturban@gmail.com)
+> :octocat: [Github](https://github.com/sanurb)
+> :bird: [Twitter](https://twitter.com/dsanturban)
+> :blue_book: [Linkedin](https://www.linkedin.com/in/sanurb)

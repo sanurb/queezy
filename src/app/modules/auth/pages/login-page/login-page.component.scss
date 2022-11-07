@@ -1,14 +1,4 @@
 .login-auth-page {
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  background-color: #F2F2F2;
-  color: var(--black-color);
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
 
   .login-header {
     padding: 25px 0px 10px;
@@ -78,6 +68,121 @@
 
     .login-auth-form{
       margin: 1.5rem 0px;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      .forgot-password-link{
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 17px;
+
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
+      .login-section{
+        justify-content: space-between;
+        margin-block-end: -40px;
+        .div-checkbox{
+          padding-bottom: 16px;
+          .checkbox{
+            box-sizing: border-box;
+            -moz-box-align: center;
+            align-items: center;
+            display: flex;
+            padding-bottom: 4px;
+            padding-top: 4px;
+            position: relative;
+            min-height: 32px;
+
+            input[type="checkbox"] {
+              /* Add if not using autoprefixer */
+              -webkit-appearance: none;
+              /* Remove most all native input styles */
+              appearance: none;
+              /* For iOS < 15 */
+              background-color: white;
+              /* Not removed via appearance */
+              margin: 0;
+
+              font: inherit;
+              color: currentColor;
+              width: 1.15em;
+              height: 1.15em;
+              border: 0.1em solid #878787;
+              border-radius: 0.15em;
+              transform: translateY(-0.075em);
+
+              display: grid;
+              place-content: center;
+
+              &::before {
+                content: "";
+                width: 0.65em;
+                height: 0.65em;
+                clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+                transform: scale(0);
+                transform-origin: bottom left;
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em var(--brand-color);
+                /* Windows High Contrast Mode */
+                background-color: CanvasText;
+              }
+
+              &:checked::before {
+                transform: scale(1);
+              }
+
+              &:focus {
+                outline: max(2px, 0.15em) solid currentColor;
+                outline-offset: max(2px, 0.15em);
+              }
+            }
+
+            .label-login-remember{
+              display: flex;
+              position: relative;
+
+              .text-login-remember{
+                padding-left: 12px;
+                padding-right: 24px;
+
+                p{
+                  font-size: 0.875rem;
+                  font-weight: 400;
+                }
+              }
+            }
+          }
+        }
+
+        .btn-login{
+          width: auto;
+          @media (max-width: 768px){
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .sign-up-section{
+      margin: 1.5rem 0px;
+      display: flex;
+      width: 100%;
+      justify-content: flex-start;
+      flex-direction: column;
+
+      .sign-up-divider{
+        flex: 1 1 0%;
+        border-top: 1px solid rgb(217, 218, 220);
+      }
+
+      .singn-up-text{
+        margin: 1.5rem 0px;
+      }
     }
   }
 
@@ -97,12 +202,5 @@
     margin: 2rem 0;
     border-bottom: solid 1px var(--dark-color);
     opacity: .2;
-  }
-
-  .login-auth-form {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    flex-direction: column;
   }
 }

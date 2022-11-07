@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "queezy-d962a": {
+      "hosting": {
+        "queezy": [
+          "queezy-d962a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "queezy-d962a"
+  }
+}

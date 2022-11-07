@@ -7,7 +7,8 @@
   }
 
   &:disabled{
-    cursor: not-allowed;
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   &--action{
@@ -70,7 +71,17 @@
     &:hover{
         background-color: #237e0b;
     }
-}
+  }
+
+  &--transparent{
+    background-color: transparent;
+    color: #6a6a6a;
+    border: 1px solid #878787;
+
+    &:hover{
+        border-color: #36393f;
+    }
+  }
 
   &--close{
       position: absolute;

@@ -2,9 +2,13 @@
   text-align:center;
 
   &--small{
-    font-size: var(--font-size-normal);
+    font-size: var(--font-size-small);
     line-height: 120%;
-}
+  }
+
+  &--normal{
+    font-size: var(--font-size-normal);
+  }
 
   &--medium{
       font-size: var(--font-size-medium);
@@ -14,4 +18,13 @@
   &--large{
       font-size: var(--font-size-large);
   }
+
+  &--xl{
+    font-size: var(--font-size-xl);
+}
+}
+
+.uppercase-text{
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
