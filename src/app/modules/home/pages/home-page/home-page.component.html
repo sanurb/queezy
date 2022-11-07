@@ -5,16 +5,15 @@
     <div class="container__logo">
       <div class="container__logo-img"></div>
     </div>
-    <div *ngIf="error" class="alert alert-danger" role="alert">
-      <strong>{{ errorText }}</strong>
-    </div>
     <form class="form-enter" action="">
       <input
         [(ngModel)]="pin"
         name = "pin"
         type="text"
         placeholder="PIN de juego"
-        class="form-control form-enter__input"
+        class="form-enter__input"
+        (input) = "removeError()"
+        [ngClass] = "{ bounce: error }"
       />
       <button (click)="ingresar()" class="btn-enter">Ingresar</button>
     </form>

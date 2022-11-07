@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@modules/auth/services/auth.service';
 import { HotToastService } from '@ngneat/hot-toast';
-import { LoginService } from '@core/services/login.service';
+
 
 @Component({
   selector: 'app-login-page',
@@ -17,11 +18,11 @@ export class LoginPageComponent implements OnInit {
   });
 
   constructor(
-    private authService: LoginService,
+    private authService: AuthService,
     private toast: HotToastService,
     private router: Router,
     private fb: NonNullableFormBuilder
-    ) { }
+  ) { }
 
   ngOnInit(): void {}
 

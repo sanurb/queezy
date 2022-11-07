@@ -1,32 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
-export class HomePageComponent implements OnInit {
-
+export class HomePageComponent {
   error = false;
   errorText = '';
   pin = '';
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(private _snackBar: MatSnackBar) {}
 
   ingresar() {
     // Validar si el usuario no ingreso ningun caracter
 
-    if(this.pin == '') {
-      this.errorText = 'Por favor ingrese un pin'
+    if (this.pin == '') {
       this.error = true;
-
-      setTimeout(() => {
-        this.error = false
-      },3000);
+      this.errorText = 'Ingresa un PIN antes de jugar';
+      this._snackBar.open(this.errorText, 'x', {
+        duration: 7000,
+        panelClass: ['mat-toolbar', 'mat-warn'],
+      });
     }
   }
 
+  removeError() {
+    this.error = false;
+  }
 }

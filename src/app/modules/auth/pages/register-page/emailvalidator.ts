@@ -20,7 +20,9 @@ export function EmailValidator(confirmEmailInput: string) {
     // Si son diferentes y el emailcontrol es valido marcar error
     if (
       emailControl.value.toLocaleLowerCase() !==
-      confirmEmailControl.value.toLocaleLowerCase() && emailControl.valid
+        confirmEmailControl.value.toLocaleLowerCase() &&
+      emailControl.valid &&
+      confirmEmailControl.value != ''
     ) {
       return { notMatch: true };
     }

@@ -21,7 +21,7 @@
 		</div>
     <h2 class="adaptive-font title__subtitle">Registrarte con tu correo electrónico.</h2>
 
-		<form class="register-auth-form" [formGroup]="registerForm">
+		<form class="register-auth-form" [formGroup]="registerForm" (ngSubmit)="submit()">
 
 			<app-input
         [parentForm]="registerForm"
@@ -53,7 +53,7 @@
         class="col">
       </app-password-input>
 
-      <button [disabled]="registerForm.invalid" class="btn btn--small btn--success btn-group-btn btn-register">
+      <button type="submit" [disabled]="registerForm.invalid" class="btn btn--small btn--success btn-group-btn btn-register">
         <p>Registrarte</p>
       </button>
 
