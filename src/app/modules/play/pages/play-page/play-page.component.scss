@@ -94,14 +94,6 @@
         }
       }
 
-      .bounce {
-        outline: 0;
-        border-color: red;
-        animation-name: bounce;
-        animation-duration: .5s;
-        animation-delay: 0.25s;
-      }
-
       @keyframes bounce {
         0% {
           transform: translateX(0px);

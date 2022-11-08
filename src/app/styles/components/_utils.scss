@@ -12,3 +12,14 @@
   margin-left: auto;
 }
 
+.text-center{
+  text-align: center !important;
+}
+
+.bounce {
+  outline: 0;
+  border-color: red !important;
+  animation-name: bounce;
+  animation-duration: .5s;
+  animation-delay: 0.25s;
+}
