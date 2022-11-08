@@ -35,13 +35,53 @@
       width: 100%;
       margin: 1.5rem 0px;
 
-      .social-btn.btn-fb {
-        background-color: #3A61B3;
-        color: var(--light-color);
-      }
-      .social-btn.btn-apple {
-        background-color: #1a1a1a;
-        color: var(--light-color);
+      .social-btn{
+        border: 0;
+        padding: .5rem 2rem;
+        width: 100%;
+        font-size: var(--font-medium);
+        border-radius: var(--border-radius-2);
+        box-shadow: var(--shadow-1);
+        background-color: var(--light-color);
+        font-weight: 600;
+        display: inline-flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+
+        &.btn-fb {
+          background-color: #3A61B3;
+          color: var(--light-color);
+        }
+
+        &.btn-apple {
+          background-color: #1a1a1a;
+          color: var(--light-color);
+        }
+
+        &__text{
+          display: flex;
+          flex-direction: row;
+          column-gap: 10px;
+          -webkit-box-align: center;
+          align-items: center;
+        }
+
+        &__icon{
+
+          &--apple{
+            background: url("https://accounts.scdn.co/sso/images/apple-icon.36286be565c1ca3ac9b60243f8e0a78b.svg") center center no-repeat;
+            width: 20px;
+            height: 20px;
+          }
+
+          &--google{
+            background: url("https://accounts.scdn.co/sso/images/google-icon.1cdc8fce9609d07f0e9d8d0bc4b61f8f.svg") center center no-repeat;
+            width: 20px;
+            height: 20px;
+          }
+        }
       }
     }
 
@@ -186,17 +226,6 @@
     }
   }
 
-
-  .social-btn {
-    border: 0;
-    padding: .5rem 2rem;
-    width: 100%;
-    font-size: var(--font-medium);
-    border-radius: var(--border-radius-2);
-    box-shadow: var(--shadow-1);
-    background-color: var(--light-color);
-    font-weight: 600;
-  }
   .separator {
     width: 100%;
     margin: 2rem 0;

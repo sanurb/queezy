@@ -1,0 +1,26 @@
+<div class="play-wrapper">
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+  <div class="container">
+    <div class="container__logo">
+      <div class="container__logo-img"></div>
+    </div>
+    <form class="form-enter" action="">
+      <input
+        [(ngModel)]="pin"
+        name = "pin"
+        type="text"
+        placeholder="PIN de juego"
+        class="form-enter__input"
+        (input) = "removeError()"
+        [ngClass] = "{ bounce: error }"
+      />
+      <button (click)="ingresar()" class="btn-enter">Ingresar</button>
+    </form>
+
+    <p class="fixed-bottom adaptive-font--small footer-text">
+      Crea tu propio cuestionario GRATIS
+      <a class="link" routerLink="/auth">aqui</a>
+    </p>
+  </div>
+</div>

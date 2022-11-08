@@ -1,10 +1,12 @@
 :root {
   --light-color: #fff;
   --black-color: #000000;
-  --dark-color: #0c092a;
+  --dark-color: #171721;
+  --dark-color-lighter: #7E8299;
   --not-very-dark: #424242;
   --brand-color: #6A5AE0;
-  --secundary-color: #9087E5;
+  --secondary-color: #9087E5;
+  --secondary-color2: #FF8FA2;
   --accent-color: #FFD6DD;
   --accent-color2: #C4D0FB;
   --accent-color3: #C9F2E9;
@@ -21,6 +23,10 @@
   --shadow-2: rgba(100, 100, 111, .2) 0px 7px 29px 0px;
   --border-radius-1: .25rem;
   --border-radius-2: .5rem;
+  --margin-small: 0.625rem;
+  --margin-medium: 0.938rem;
+  --gap-small: 0.625rem;
+  --gap-medium: 1.563rem;
 
   @media screen and (min-width: 48em) {
       --number-of-columns: 8;

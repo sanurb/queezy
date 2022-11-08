@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderUserComponent implements OnInit {
 
+  menuToggleOpen: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
