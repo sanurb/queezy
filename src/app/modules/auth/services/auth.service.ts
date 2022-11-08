@@ -10,11 +10,14 @@ import {
   sendPasswordResetEmail,
 } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';
+import { User } from '@core/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  currentUser$ = authState(this.auth);
+
   constructor(private auth: Auth) {}
 
   signUp(email: string, password: string): Observable<UserCredential> {
@@ -22,7 +25,9 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return from(signInWithEmailAndPassword(this.auth, email, password));
+    return from(signInWithEmailAndPassword(this.auth, email, password).then((response) => {
+      this.setLocalStorage(response.user)
+    }));
   }
 
   resetPassword(email: string): Observable<any> {
@@ -42,5 +47,14 @@ export class AuthService {
 
   logout() {
     return from(this.auth.signOut());
+  }
+
+  setLocalStorage(user: any) {
+    const usuario: User = {
+      uid: user.uid,
+      email: user.email
+    }
+
+    localStorage.setItem('user', JSON.stringify(usuario));
   }
 }

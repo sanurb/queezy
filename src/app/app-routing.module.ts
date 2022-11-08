@@ -7,9 +7,10 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
+import { PageNotFoundComponent } from '@shared/components';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['auth/login']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     path: 'play',
     component: PlayPageComponent,
     loadChildren: () => import(`./modules/play/play.module`).then(m => m.PlayModule)
-  }
+  },
+  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
 @NgModule({

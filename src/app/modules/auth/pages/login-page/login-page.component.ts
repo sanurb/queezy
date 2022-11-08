@@ -56,5 +56,4 @@ export class LoginPageComponent implements OnInit {
         this.router.navigate(['']);
       });
   }
-
 }
