@@ -29,6 +29,10 @@
           border-radius: 50%;
           color: var(--secondary-color2);
           background-color: white;
+
+          &:hover{
+            color: var(--brand-color);
+          }
         }
       }
   }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '@modules/auth/services/auth.service';
+import { ErrorAuthService } from '@modules/auth/services/error-auth.service';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-forgot-password-page',
@@ -8,21 +12,45 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ForgotPasswordPageComponent implements OnInit {
 
-  public forgotPwdForm!: FormGroup;
+  public forgotPwdForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+  });
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private toast: HotToastService,
+    private router: Router,
+    private fb: NonNullableFormBuilder,
+    private _errorService: ErrorAuthService
+  ) { }
 
   ngOnInit(): void {
-    this.generateForgotPwdForm();
   }
 
-  public generateForgotPwdForm(): void {
-    this.forgotPwdForm = new FormGroup({
-      email: new FormControl('', [
-        Validators.required,
-        Validators.email
-      ]),
-    });
+
+  get email() {
+    return this.forgotPwdForm.get('email');
+  }
+
+  submit(): void {
+    const { email } = this.forgotPwdForm.value;
+
+    if (!this.forgotPwdForm.valid || !email) {
+      return;
+    }
+
+    this.authService
+      .resetPassword(email)
+      .pipe(
+        this.toast.observe({
+          success: 'Enviamos un mensaje por correo electrónico para restablecer su contraseña. ',
+          loading: 'Espera...',
+          error: ({ code }) => `Error: ${ this._errorService.error(code) } `,
+        })
+      )
+      .subscribe(() => {
+        this.router.navigate(['/auth/login']);
+      });
   }
 
 }

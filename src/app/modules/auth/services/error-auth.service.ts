@@ -27,7 +27,7 @@ export class ErrorAuthService {
         return 'Usuario invalido'
 
       case 'auth/wrong-password':
-        return 'La Contraseña es invalida'
+        return 'Nombre de usuario o contraseña incorrectos.'
 
       default:
         return 'Error desconocido';

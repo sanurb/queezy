@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@modules/auth/services/auth.service';
+import { ErrorAuthService } from '@modules/auth/services/error-auth.service';
 import { HotToastService } from '@ngneat/hot-toast';
 
 
@@ -21,7 +22,8 @@ export class LoginPageComponent implements OnInit {
     private authService: AuthService,
     private toast: HotToastService,
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: NonNullableFormBuilder,
+    private _errorService: ErrorAuthService
   ) { }
 
   ngOnInit(): void {}
@@ -47,11 +49,11 @@ export class LoginPageComponent implements OnInit {
         this.toast.observe({
           success: 'Se ha logeado con éxito',
           loading: 'Iniciando sesión...',
-          error: ({ message }) => `There was an error: ${message} `,
+          error: ({ code }) => `Error: ${this._errorService.error(code)} `,
         })
       )
       .subscribe(() => {
-        this.router.navigate(['../home']);
+        this.router.navigate(['']);
       });
   }
 
