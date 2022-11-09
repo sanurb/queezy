@@ -22,7 +22,6 @@
                 <div class="fondo-item">
                     <p class="tituloSegundosPuntos">PUNTOS</p>
                     <p class="segPuntos">{{points}}</p>
-                    <!-- <p class="segPuntos">{{ puntos }}</p> -->
                     <input formControlName="points" type="range" class="form-range" min="0" max="2000">
                 </div>
             </div>
@@ -42,6 +41,7 @@
                 <div formGroupName="response2" class="input-group">
                     <input formControlName="title" type="text" class="form-control inputRespuesta" placeholder="Agregar respuesta 2">
                     <div class="input-group-text">
+                      <i class="ri-checkbox-blank-circle-line"></i>
                         <!-- <i [ngClass]="{ 'far fa-circle': obtenerEstadoRespuesta('response2') == false,
                         'fas fa-check-circle animate__animated animate__heartBeat': obtenerEstadoRespuesta('response2') == true }"></i> -->
                     </div>
