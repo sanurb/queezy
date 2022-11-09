@@ -6,12 +6,16 @@ import { ListQuestionnairesPageComponent } from './pages/list-questionnaires-pag
 import { CreateQuizPageComponent } from './pages/create-quiz-page/create-quiz-page.component';
 import { SharedModule } from '@shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CreateQuestionsComponent } from './pages/create-questions/create-questions.component';
+import { ListQuestionsComponent } from './pages/list-questions/list-questions.component';
 
 
 @NgModule({
   declarations: [
     ListQuestionnairesPageComponent,
-    CreateQuizPageComponent
+    CreateQuizPageComponent,
+    CreateQuestionsComponent,
+    ListQuestionsComponent
   ],
   imports: [
     CommonModule,

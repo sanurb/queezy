@@ -1,5 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { QuizRequestService } from '@modules/questionnaires/services/quiz-request.service';
 
 @Component({
   selector: 'app-create-quiz-page',
@@ -15,7 +17,10 @@ export class CreateQuizPageComponent implements OnInit {
     description: ['', Validators.required],
   })
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    private _quizservice: QuizRequestService
+  ) { }
 
   ngOnInit(): void {}
 
@@ -34,6 +39,12 @@ export class CreateQuizPageComponent implements OnInit {
     if (!this.createQuizForm.valid || !title || !description) {
       return;
     }
+
+
+    this._quizservice.titleQuiz = title;
+    this._quizservice.description = description;
+
+    this.router.navigate(['create-question'])
   }
 
 }
