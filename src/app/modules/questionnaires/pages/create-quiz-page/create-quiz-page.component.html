@@ -1,0 +1,52 @@
+<div class="create-quiz-wrapper">
+  <div class="floating-background-img">
+    <img src="../../../../../assets/img/dashboard/dash-min.png" alt="">
+  </div>
+  <div class="d-flex justify-content-center mt-3">
+
+    <div class="card card-title">
+        <div class="card-body text-center">
+            <h4 class="title uppercase-text">Ingrese los datos del cuestionario</h4>
+        </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row mt-3">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="createQuizForm">
+                      <app-input
+                        [parentForm]="createQuizForm"
+                        fieldName="title"
+                        label="Titulo"
+                        formControlName="title"
+                        placeholder="Titulo"
+                        [isRequired]=true
+                        class="col">
+                      </app-input>
+                      <app-text-area-input
+                        [parentForm]="createQuizForm"
+                        fieldName="description"
+                        label="Descripcion"
+                        formControlName="description"
+                        placeholder="Descripcion"
+                        [rows]="3"
+                        [isRequired]=true
+                        class="col">
+                      </app-text-area-input>
+                    </form>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <button (click)="next()" [disabled]="createQuizForm.invalid" class="btn btn--small btn--brand btn-group-btn btn-login">
+                      <p>Siguiente</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

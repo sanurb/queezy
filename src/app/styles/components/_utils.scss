@@ -23,3 +23,16 @@
   animation-duration: .5s;
   animation-delay: 0.25s;
 }
+
+.floating-background-img{
+  height: 28.125rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  & img{
+    height: 100%;
+    object-fit: cover;
+  }
+}

@@ -1,14 +1,16 @@
 .register-auth-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow-x: hidden;
 
   .register-header {
-    padding: 25px 0px 10px;
-    margin-bottom: 30px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    overflow-x: hidden;
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid rgb(217, 218, 220);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px 0px;
+    margin-bottom: 10px;
+    text-align: center;
 
     &__logo{
       padding: 0px 0px 12px;
@@ -21,12 +23,20 @@
     }
   }
 
+  .register-container{
+    display: flex;
+    -moz-box-pack: center;
+    justify-content: center;
+    padding: 10px;
+    flex: 3 1 0%;
+  }
+
   .register-auth-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     max-width: 360px;
     width: 100%;
+    justify-content: center;
 
     .title{
       color: var(--not-very-dark);

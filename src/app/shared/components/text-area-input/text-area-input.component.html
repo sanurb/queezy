@@ -1,0 +1,27 @@
+<div class="field_container">
+  <div class="form-label">
+    <label [ngClass]="{ 'is-required': isRequired }">
+      {{ label }}
+    </label>
+  </div>
+  <textarea
+    type="password"
+    class="form-element"
+    [ngClass]="{
+      'has-error': formField.invalid && formField.dirty
+    }"
+    [id]="fieldName"
+    [name]="fieldName"
+    [value]="value"
+    [placeholder]="placeholder"
+    [cols]="cols"
+    [rows]="rows"
+    [disabled]="isDisabled"
+    [required]="isRequired"
+    (input)="onChange($event)"
+    (blur)="touched()"
+  ></textarea>
+
+  <!-- Mensaje de error -->
+  <app-field-errors [formField]="formField"> </app-field-errors>
+</div>
