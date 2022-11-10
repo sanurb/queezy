@@ -45,11 +45,11 @@ export class CreateQuestionsComponent implements OnInit {
   }
 
   get seconds() {
-    return this.addQuestionForm.get('seconds')?.value;
+    return this.addQuestionForm.get('seconds')?.value!;
   }
 
   get points() {
-    return this.addQuestionForm.get('points')?.value;
+    return this.addQuestionForm.get('points')?.value!;
   }
 
   addQuestion(){
@@ -120,13 +120,49 @@ export class CreateQuestionsComponent implements OnInit {
       listRespuestas: listRespuestas
     }
 
+    // this._quizService.addQuestion(pregunta);
+    console.log("🚀 ~ file: create-questions.component.ts ~ CreateQuestionsComponent ~ addQuestion ~ this.addQuestionForm.value", this.addQuestionForm.value)
+    this.reset();
+
+  }
+
+  reset() {
+    this.addQuestionForm.patchValue({
+      title: '',
+      seconds: 10,
+      points: 1000,
+      response1: {
+        title: '',
+        isCorrect: false
+      },
+      response2: {
+        title: '',
+        isCorrect: false
+      },
+      response3: {
+        title: '',
+        isCorrect: false
+      },
+      response4: {
+        title: '',
+        isCorrect: false
+      },
+    })
+  }
+
+  todasIncorrectas() {
+    const array = ['response1','response2','response3','response4'];
+
+    for (let i = 0; i < array.length; i++) {
+        if(this.addQuestionForm.get(array[i])?.get('esCorrecta')?.value == true) {
+          return false;
+        }
+    }
+
+    return true;
   }
 
   sumarRestarSegundos(numero: number) {
-
-    if(!this.seconds){
-      return;
-    }
 
     if(this.seconds <= 5 ) {
       return;
@@ -135,6 +171,37 @@ export class CreateQuestionsComponent implements OnInit {
     this.addQuestionForm.patchValue({
       seconds: this.seconds + numero
     })
+  }
+
+  esCorrecta(index: string) {
+    let stringRta = 'response';
+    let nroRespuesta = stringRta.concat(index);
+    this.setFalseRespuestas(nroRespuesta)
+
+    const estadoRta = this.obtenerEstadoRespuesta(nroRespuesta)
+
+    this.addQuestionForm.get(nroRespuesta)?.patchValue({
+      isCorrect: !estadoRta
+    })
+  }
+
+  obtenerEstadoRespuesta(nroRespuesta: string): boolean {
+    return this.addQuestionForm.get(nroRespuesta)?.get('isCorrect')?.value;
+  }
+
+  setFalseRespuestas(nroRespuestas: string) {
+    const array = ['response1','response2','response3','response4'];
+
+    // Recorremos el array y seteamos TOAS las respuestas como false MENOS la que el usuario selecciono
+    for (let i = 0; i < array.length; i++) {
+      if(array[i] !== nroRespuestas) {
+        this.addQuestionForm.get(array[i])?.patchValue({
+          isCorrect: false
+        })
+      }
+
+    }
+
   }
 
 }

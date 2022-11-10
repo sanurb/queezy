@@ -30,6 +30,7 @@
             "styles": [
               "src/app/styles/styles.scss",
               "src/app/styles/vendors/bootstrap-grid.min.css",
+              "node_modules/animate.css/animate.min.css",
               "src/app/styles/vendors/queezy-theme.scss"
             ],
             "scripts": []
