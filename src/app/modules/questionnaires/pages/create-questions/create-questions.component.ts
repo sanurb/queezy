@@ -3,7 +3,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { QuizRequestService } from '@modules/questionnaires/services/quiz-request.service';
 import { Response } from '@core/models/response.model';
 import { Question } from '@core/models/question.model';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 
 @Component({
   selector: 'app-create-questions',
