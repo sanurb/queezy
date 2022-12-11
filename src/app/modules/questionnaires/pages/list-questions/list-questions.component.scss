@@ -1,0 +1,32 @@
+.tituloPregunta {
+  font-size: 1.25rem;
+}
+
+.list-group{
+
+  margin-top: 10px;
+
+  &-item {
+    font-size: 16px;
+    color: black;
+    text-align: center;
+  }
+}
+
+
+.classCorrecta {
+  background-color: #131d2d;
+  color: white;
+}
+
+.btn-eliminar{
+  margin-top: 30px;
+}
+
+.ri-delete-bin-5-fill {
+  padding-top: 15px;
+  text-align: center;
+  font-size: 30px;
+  cursor: pointer;
+  color: #a71c2B;
+}

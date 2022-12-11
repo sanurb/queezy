@@ -1,6 +1,6 @@
 import { Question } from "./question.model";
 
-export class Cuestionario {
+export class Questionnaire {
     id?: string;
     uid: string;
     titulo: string;

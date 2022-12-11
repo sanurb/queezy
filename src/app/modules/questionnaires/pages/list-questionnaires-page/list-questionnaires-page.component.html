@@ -21,7 +21,16 @@
                               </tr>
                           </thead>
                           <tbody>
-
+                            <tr *ngFor="let cuestionario of listCuestionarios">
+                              <td>{{ cuestionario.titulo }}</td>
+                              <td>{{ cuestionario.cantPreguntas }}</td>
+                              <td><span class="badge bg-black">{{ cuestionario.codigo }}</span></td>
+                              <td>
+                                  <i [routerLink]="['/dashboard/verCuestionario', cuestionario.id]" class="fas fa-search"></i>
+                                  <i [routerLink]="['/dashboard/estadisticas', cuestionario.id]" class="fas fa-chart-line"></i>
+                                  <i class="fas fa-trash"></i>
+                              </td>
+                          </tr>
                           </tbody>
                       </table>
                   </div>

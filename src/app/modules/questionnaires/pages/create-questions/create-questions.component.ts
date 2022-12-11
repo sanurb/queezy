@@ -3,6 +3,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { QuizRequestService } from '@modules/questionnaires/services/quiz-request.service';
 import { Response } from '@core/models/response.model';
 import { Question } from '@core/models/question.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-questions',
@@ -37,6 +38,7 @@ export class CreateQuestionsComponent implements OnInit {
 
   constructor(
     private _quizService: QuizRequestService,
+    private _snackBar: MatSnackBar
   ) { }
 
   ngOnInit(): void {
@@ -54,9 +56,11 @@ export class CreateQuestionsComponent implements OnInit {
 
   addQuestion(){
 
-    const { title, seconds, points, response1, response2, response3, response4 } = this.addQuestionForm.value;
-
-    if (!this.addQuestionForm.valid || !title || !seconds || !points || !response1 || !response2) {
+    if(this.addQuestionForm.invalid || this.todasIncorrectas()) {
+      this._snackBar.open('Porfavor ingrese todos los campos', 'x', {
+        duration: 6000,
+        panelClass: ['mat-toolbar', 'mat-warn'],
+      });
       return;
     }
 
@@ -93,7 +97,9 @@ export class CreateQuestionsComponent implements OnInit {
       isCorrect: esCorrecta3,
     }
 
-    listRespuestas.push(respuesta3);
+    if(rtaTitulo3 !== ''){
+      listRespuestas.push(respuesta3);
+    }
 
     // Obtenemos respuesta 4
     const rtaTitulo4 = this.addQuestionForm.get('response4')?.get('title')?.value!;
@@ -120,10 +126,8 @@ export class CreateQuestionsComponent implements OnInit {
       listRespuestas: listRespuestas
     }
 
-    // this._quizService.addQuestion(pregunta);
-    console.log("🚀 ~ file: create-questions.component.ts ~ CreateQuestionsComponent ~ addQuestion ~ this.addQuestionForm.value", this.addQuestionForm.value)
+    this._quizService.agregarPregunta(pregunta);
     this.reset();
-
   }
 
   reset() {
@@ -154,7 +158,7 @@ export class CreateQuestionsComponent implements OnInit {
     const array = ['response1','response2','response3','response4'];
 
     for (let i = 0; i < array.length; i++) {
-        if(this.addQuestionForm.get(array[i])?.get('esCorrecta')?.value == true) {
+        if(this.addQuestionForm.get(array[i])?.get('isCorrect')?.value == true) {
           return false;
         }
     }
