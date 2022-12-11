@@ -18,6 +18,7 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy{
   loading = false;
 
   constructor(
+    private afAuth: AngularFireAuth,
     private router: Router,
     private _quizService: QuizRequestService,
     private toast: HotToastService,
@@ -25,6 +26,16 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.loading = true;
+    this.suscriptionUser = this.afAuth.user.subscribe(user => {
+      console.log(user);
+      if (user) {
+        // cargar los cuestionarios
+        this.getCuestionarios(user.uid);
+
+      } else {
+        this.router.navigate(['/play']);
+      }
+    })
   }
 
   ngOnDestroy(): void {

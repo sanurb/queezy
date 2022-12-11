@@ -57,8 +57,7 @@
 }
 
 .bg-dark{
-  --bs-dark-rgb: 33,37,41;
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-dark-rgb),var(--bs-bg-opacity))!important;
+  --bs-dark-rgb: #212529;
+  background: var(--bs-dark-rgb)!important;
 }
 
