@@ -11,7 +11,7 @@ import { QuizRequestService } from '@modules/questionnaires/services/quiz-reques
   templateUrl: './list-questionnaires-page.component.html',
   styleUrls: ['./list-questionnaires-page.component.scss'],
 })
-export class ListQuestionnairesPageComponent implements OnInit, OnDestroy{
+export class ListQuestionnairesPageComponent implements OnInit, OnDestroy {
   suscriptionUser: Subscription = new Subscription();
   suscriptionQuizz: Subscription = new Subscription();
   listCuestionarios: Questionnaire[] = [];
@@ -21,21 +21,15 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy{
     private afAuth: AngularFireAuth,
     private router: Router,
     private _quizService: QuizRequestService,
-    private toast: HotToastService,
+    private toast: HotToastService
   ) {}
 
   ngOnInit(): void {
     this.loading = true;
-    this.suscriptionUser = this.afAuth.user.subscribe(user => {
+    this.suscriptionUser = this.afAuth.user.subscribe((user) => {
       console.log(user);
-      if (user) {
-        // cargar los cuestionarios
-        this.getCuestionarios(user.uid);
-
-      } else {
-        this.router.navigate(['/play']);
-      }
-    })
+      this.getCuestionarios(user!.uid);
+    });
   }
 
   ngOnDestroy(): void {
@@ -64,4 +58,23 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy{
       );
   }
 
+  eliminarCuestionario(id: string) {
+    this.loading = true;
+    this._quizService
+      .eliminarCuestionario(id)
+      .then((data) => {
+        this.toast.success(
+          'El Cuestionario fue eliminado con exito',
+          {
+            dismissible: true,
+            duration: 3000
+          }
+        );
+        this.loading = false;
+      })
+      .catch(() => {
+        this.loading = false;
+        this.toast.error('Opss.. ocurrio un error');
+      });
+  }
 }
