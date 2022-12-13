@@ -27,8 +27,11 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loading = true;
     this.suscriptionUser = this.afAuth.user.subscribe((user) => {
-      console.log(user);
-      this.getCuestionarios(user!.uid);
+      if(user){
+        this.getCuestionarios(user.uid);
+      }else {
+        this.router.navigate(['/play']);
+      }
     });
   }
 
