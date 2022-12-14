@@ -6,7 +6,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ForgotPasswordPageComponent } from './pages/forgot-password-page/forgot-password-page.component';
-import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
+import { MatCardModule } from '@angular/material/card';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 

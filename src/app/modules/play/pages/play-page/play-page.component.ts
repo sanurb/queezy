@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
-
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-play-page',
   templateUrl: './play-page.component.html',
@@ -21,7 +20,7 @@ export class PlayPageComponent{
       this.errorText = 'Ingresa un PIN antes de jugar';
       this._snackBar.open(this.errorText, 'x', {
         duration: 7000,
-        panelClass: ['mat-toolbar', 'mat-warn'],
+        panelClass: ['app-notification-error'],
       });
     }
   }
