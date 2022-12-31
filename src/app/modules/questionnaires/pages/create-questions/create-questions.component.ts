@@ -3,7 +3,7 @@ import { NonNullableFormBuilder, Validators } from '@angular/forms';
 import { QuizRequestService } from '@modules/questionnaires/services/quiz-request.service';
 import { Response } from '@core/models/response.model';
 import { Question } from '@core/models/question.model';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-questions',
@@ -59,7 +59,7 @@ export class CreateQuestionsComponent implements OnInit {
     if(this.addQuestionForm.invalid || this.todasIncorrectas()) {
       this._snackBar.open('Porfavor ingrese todos los campos', 'x', {
         duration: 6000,
-        panelClass: ['mat-toolbar', 'mat-warn'],
+        panelClass: ['app-notification-error'],
       });
       return;
     }
