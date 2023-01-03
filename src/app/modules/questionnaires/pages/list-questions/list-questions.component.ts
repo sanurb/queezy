@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Question } from '@core/models/question.model';
 import { Questionnaire } from '@core/models/questionnaire.model';
-import { User } from '@core/models/user.model';
+import { User } from '@core/interface/user.model';
 import { QuizRequestService } from '@modules/questionnaires/services/quiz-request.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { nanoid } from 'nanoid';
@@ -27,7 +27,7 @@ export class ListQuestionsComponent implements OnInit {
       console.log(this.listPreguntas);
     });
     this.tituloCuestionario = this._quizService.titleQuiz;
-    this.descripcionCuestionario = this._quizService.description;
+    this.descripcionCuestionario = this._quizService.descripcion;
   }
 
   ngOnInit(): void {

@@ -16,8 +16,8 @@
               </div>
               <ul class="list-group">
                   <li *ngFor="let respuesta of pregunta.listRespuestas" class="list-group-item"
-                      [ngClass]="{ 'classCorrecta': respuesta.isCorrect === true }">
-                      {{ respuesta.description }}
+                      [ngClass]="{ 'classCorrecta': respuesta.esCorrecta === true }">
+                      {{ respuesta.descripcion }}
                   </li>
               </ul>
               <div class="btn-eliminar">

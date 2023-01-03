@@ -11,7 +11,7 @@ import { Questionnaire } from '@core/models/questionnaire.model';
 })
 export class QuizRequestService {
   titleQuiz: string = '';
-  description: string = '';
+  descripcion: string = '';
   private pregunta$ = new Subject<Question>();
 
   constructor(private _firestore: AngularFirestore) {}

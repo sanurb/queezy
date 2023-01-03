@@ -42,7 +42,7 @@ export class CreateQuizPageComponent implements OnInit {
 
 
     this._quizservice.titleQuiz = title;
-    this._quizservice.description = description;
+    this._quizservice.descripcion = description;
 
     this.router.navigate(['createQuestion'])
   }

@@ -20,19 +20,19 @@ export class CreateQuestionsComponent implements OnInit {
     points: [1000, Validators.required],
     response1: this.fb.group({
       title: ['', Validators.required],
-      isCorrect: [false, Validators.required]
+      esCorrecta: [false, Validators.required]
     }),
     response2: this.fb.group({
       title: ['', Validators.required],
-      isCorrect: [false, Validators.required]
+      esCorrecta: [false, Validators.required]
     }),
     response3: this.fb.group({
       title: '',
-      isCorrect: false
+      esCorrecta: false
     }),
     response4: this.fb.group({
       title: '',
-      isCorrect: false
+      esCorrecta: false
     }),
   })
 
@@ -43,7 +43,7 @@ export class CreateQuestionsComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('🚀 ~ file: create-questions.component.ts - title', this._quizService.titleQuiz)
-    console.log('🚀 ~ file: create-questions.component.ts - descripcion', this._quizService.description)
+    console.log('🚀 ~ file: create-questions.component.ts - descripcion', this._quizService.descripcion)
   }
 
   get seconds() {
@@ -67,22 +67,22 @@ export class CreateQuestionsComponent implements OnInit {
     let listRespuestas: Response[] = [];
 
     const rtaTitulo1 = this.addQuestionForm.get('response1')?.get('title')?.value!;
-    const esCorrecta1 = this.addQuestionForm.get('response1')?.get('isCorrect')?.value!;
+    const esCorrecta1 = this.addQuestionForm.get('response1')?.get('esCorrecta')?.value!;
     // Obtenemos response 1
     const respuesta1: Response = {
-      description: rtaTitulo1,
-      isCorrect: esCorrecta1,
+      descripcion: rtaTitulo1,
+      esCorrecta: esCorrecta1,
     }
 
     listRespuestas.push(respuesta1);
 
     // Obtenemos respuesta 2
     const rtaTitulo2 = this.addQuestionForm.get('response2')?.get('title')?.value!;
-    const esCorrecta2 = this.addQuestionForm.get('response2')?.get('isCorrect')?.value!;
+    const esCorrecta2 = this.addQuestionForm.get('response2')?.get('esCorrecta')?.value!;
 
     const respuesta2: Response = {
-      description: rtaTitulo2,
-      isCorrect: esCorrecta2,
+      descripcion: rtaTitulo2,
+      esCorrecta: esCorrecta2,
     }
 
     listRespuestas.push(respuesta2);
@@ -90,11 +90,11 @@ export class CreateQuestionsComponent implements OnInit {
 
     // Obtenemos respuesta 3
     const rtaTitulo3= this.addQuestionForm.get('response3')?.get('title')?.value!;
-    const esCorrecta3 = this.addQuestionForm.get('response3')?.get('isCorrect')?.value!;
+    const esCorrecta3 = this.addQuestionForm.get('response3')?.get('esCorrecta')?.value!;
 
     const respuesta3: Response = {
-      description: rtaTitulo3,
-      isCorrect: esCorrecta3,
+      descripcion: rtaTitulo3,
+      esCorrecta: esCorrecta3,
     }
 
     if(rtaTitulo3 !== ''){
@@ -103,11 +103,11 @@ export class CreateQuestionsComponent implements OnInit {
 
     // Obtenemos respuesta 4
     const rtaTitulo4 = this.addQuestionForm.get('response4')?.get('title')?.value!;
-    const esCorrecta4 = this.addQuestionForm.get('response4')?.get('isCorrect')?.value!;
+    const esCorrecta4 = this.addQuestionForm.get('response4')?.get('esCorrecta')?.value!;
 
     const respuesta4: Response = {
-      description: rtaTitulo4,
-      isCorrect: esCorrecta4,
+      descripcion: rtaTitulo4,
+      esCorrecta: esCorrecta4,
     }
 
     if(rtaTitulo4 !== ''){
@@ -137,19 +137,19 @@ export class CreateQuestionsComponent implements OnInit {
       points: 1000,
       response1: {
         title: '',
-        isCorrect: false
+        esCorrecta: false
       },
       response2: {
         title: '',
-        isCorrect: false
+        esCorrecta: false
       },
       response3: {
         title: '',
-        isCorrect: false
+        esCorrecta: false
       },
       response4: {
         title: '',
-        isCorrect: false
+        esCorrecta: false
       },
     })
   }
@@ -158,7 +158,7 @@ export class CreateQuestionsComponent implements OnInit {
     const array = ['response1','response2','response3','response4'];
 
     for (let i = 0; i < array.length; i++) {
-        if(this.addQuestionForm.get(array[i])?.get('isCorrect')?.value == true) {
+        if(this.addQuestionForm.get(array[i])?.get('esCorrecta')?.value == true) {
           return false;
         }
     }
@@ -185,12 +185,12 @@ export class CreateQuestionsComponent implements OnInit {
     const estadoRta = this.obtenerEstadoRespuesta(nroRespuesta)
 
     this.addQuestionForm.get(nroRespuesta)?.patchValue({
-      isCorrect: !estadoRta
+      esCorrecta: !estadoRta
     })
   }
 
   obtenerEstadoRespuesta(nroRespuesta: string): boolean {
-    return this.addQuestionForm.get(nroRespuesta)?.get('isCorrect')?.value;
+    return this.addQuestionForm.get(nroRespuesta)?.get('esCorrecta')?.value;
   }
 
   setFalseRespuestas(nroRespuestas: string) {
@@ -200,7 +200,7 @@ export class CreateQuestionsComponent implements OnInit {
     for (let i = 0; i < array.length; i++) {
       if(array[i] !== nroRespuestas) {
         this.addQuestionForm.get(array[i])?.patchValue({
-          isCorrect: false
+          esCorrecta: false
         })
       }
 

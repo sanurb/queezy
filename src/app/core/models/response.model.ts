@@ -1,9 +1,9 @@
 export class Response {
-  description: string;
-  isCorrect: boolean;
+  descripcion: string;
+  esCorrecta: boolean;
 
-  constructor(description: string, isCorrect: boolean) {
-      this.description = description
-      this.isCorrect = isCorrect
+  constructor(descripcion: string, esCorrecta: boolean) {
+    this.descripcion = descripcion;
+    this.esCorrecta = esCorrecta;
   }
 }

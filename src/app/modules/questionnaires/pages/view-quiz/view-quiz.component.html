@@ -27,8 +27,8 @@
                   <ul class="list-group">
                       <li class="list-group-item"
                           *ngFor="let respuesta of pregunta.listRespuestas"
-                          [ngClass]="{ 'classCorrecta': respuesta.isCorrect === true }">
-                          {{ respuesta.description }}
+                          [ngClass]="{ 'classCorrecta': respuesta.esCorrecta === true }">
+                          {{ respuesta.descripcion }}
                       </li>
                   </ul>
               </div>

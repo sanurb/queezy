@@ -10,7 +10,7 @@ import {
   sendPasswordResetEmail,
 } from '@angular/fire/auth';
 import { from, Observable } from 'rxjs';
-import { User } from '@core/models/user.model';
+import { User } from '@core/interface/user.model';
 
 @Injectable({
   providedIn: 'root',
