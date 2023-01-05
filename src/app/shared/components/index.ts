@@ -7,8 +7,8 @@ import { TextAreaInputComponent } from './text-area-input/text-area-input.compon
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
-
 export const components: any[] = [HeaderUserComponent, SpinnerComponent, InputComponent, PasswordInputComponent, FieldErrorsComponent, TextAreaInputComponent, PageNotFoundComponent];
+
 
 export * from './header-user/header-user.component'
 export * from './spinner/spinner.component'
