@@ -13,7 +13,7 @@
         placeholder="PIN de juego"
         class="form-enter__input"
         (input) = "removeError()"
-        [ngClass] = "{ bounce: error }"
+        [ngClass] = "{ errorShake: error }"
       />
       <button (click)="ingresar()" class="btn-enter">Ingresar</button>
     </form>

@@ -17,6 +17,7 @@ export class PlayPageComponent{
 
     if (this.pin == '') {
       this.error = true;
+      setTimeout(() => this.error = false, 3200);
       this.errorText = 'Ingresa un PIN antes de jugar';
       this._snackBar.open(this.errorText, 'x', {
         duration: 7000,
