@@ -22,7 +22,6 @@ export class InitialCounterPageComponent implements OnInit, OnDestroy {
 
   playcounterInicial() {
     this.setInterval = setInterval(() => {
-      console.log('hola');
       if (this.counter === 0) {
         this.router.navigate(['/play/takeQuiz']);
       }
