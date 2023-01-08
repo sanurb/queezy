@@ -1,0 +1,40 @@
+.initial-counter-wrapper {
+  background: #6a5ae0;
+  background: -webkit-linear-gradient(to right, #3a6073, #6a5ae0);
+  background: linear-gradient(to right, #3a6073, #6a5ae0);
+
+  .shape1 {
+    position: fixed;
+    background-color: rgb(0, 0, 0);
+    transform: rotate(45deg);
+    opacity: 0.1;
+    top: -15vmin;
+    left: -15vmin;
+    min-width: 75vmin;
+    min-height: 75vmin;
+  }
+
+  .shape2 {
+    position: fixed;
+    border-radius: 50%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0.1;
+    min-width: 75vmin;
+    min-height: 75vmin;
+    bottom: -15vmin;
+    right: -15vmin;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .counter{
+    font-size: 200px;
+    font-weight: bold;
+  }
+}
