@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from '@modules/home/pages/home-page/home-page.component';
-import { PlayPageComponent } from '@modules/play/pages/play-page/play-page.component';
 import {
   canActivate,
   redirectLoggedInTo,
@@ -26,7 +25,6 @@ const routes: Routes = [
   },
   {
     path: 'play',
-    component: PlayPageComponent,
     loadChildren: () => import(`./modules/play/play.module`).then(m => m.PlayModule)
   },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page

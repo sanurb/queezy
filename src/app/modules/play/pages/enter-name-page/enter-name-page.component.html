@@ -1,0 +1,23 @@
+<div class="enter-name-wrapper">
+  <div class="shape1"></div>
+  <div class="shape2"></div>
+  <div class="container">
+    <div class="container__logo">
+      <div class="container__logo-img"></div>
+    </div>
+    <form class="form-enter">
+      <input
+        name = "nickname"
+        type="text"
+        placeholder="Nombre"
+        maxlength="15"
+        autocomplete="off"
+        class="form-enter__input"
+        [(ngModel)]="nickname"
+        (input) = "removeError()"
+        [ngClass] = "{ errorShake: error }"
+      />
+      <button (click)="enterNickname()" class="btn-enter">¡Listo, vamos!</button>
+    </form>
+  </div>
+</div>
