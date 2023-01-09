@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CreateQuestionsComponent } from './pages/create-questions/create-questions.component';
 import { ListQuestionsComponent } from './pages/list-questions/list-questions.component';
 import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
+import { StatsComponent } from './pages/stats/stats.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
     CreateQuizPageComponent,
     CreateQuestionsComponent,
     ListQuestionsComponent,
-    ViewQuizComponent
+    ViewQuizComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,

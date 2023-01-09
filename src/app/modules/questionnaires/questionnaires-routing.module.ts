@@ -5,7 +5,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateQuestionsComponent } from './pages/create-questions/create-questions.component';
 import { CreateQuizPageComponent } from './pages/create-quiz-page/create-quiz-page.component';
 import { ListQuestionnairesPageComponent } from './pages/list-questionnaires-page/list-questionnaires-page.component';
+import { StatsComponent } from './pages/stats/stats.component';
 import { ViewQuizComponent } from './pages/view-quiz/view-quiz.component';
+import { UserResponseComponent } from '@shared/components';
 
 
 const routes: Routes = [
@@ -24,6 +26,14 @@ const routes: Routes = [
   {
     path: 'viewQuiz/:id',
     component: ViewQuizComponent
+  },
+  {
+    path: 'stats/:id',
+    component: StatsComponent
+  },
+  {
+    path: 'userResponseAdmin/:id',
+    component: UserResponseComponent
   }
 ];
 

@@ -18,6 +18,7 @@ export class UserResponseComponent implements OnInit{
     private aRoute: ActivatedRoute,
     private router: Router
   ) {
+    this.rutaAnterior = this.aRoute.snapshot.url[0].path
     this.id = this.aRoute.snapshot.paramMap.get('id')!;
   }
 
@@ -42,7 +43,7 @@ export class UserResponseComponent implements OnInit{
   }
 
   volver() {
-    if(this.rutaAnterior === 'respuestaUsuarioAdmin') {
+    if(this.rutaAnterior === 'userResponseAdmin') {
       this.router.navigate(['/stats', this.respuestaCuestionario.idCuestionario])
     } else {
       this.router.navigate(['/']);
