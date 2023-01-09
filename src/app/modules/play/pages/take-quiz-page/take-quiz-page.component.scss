@@ -1,0 +1,35 @@
+.take-quiz-wrapper {
+  background: url(../../../../../assets/img/pattern-circles-desktop.png) center no-repeat, var(--brand-color);
+  background-size: cover;
+
+  @media (max-width: 768px) {
+    background: url(../../../../../assets/img/pattern-circles.png) center no-repeat, var(--brand-color);
+    background-size: cover;
+  }
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .counter{
+    font-size: 80px;
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    cursor: pointer;
+  }
+
+  .classSeleccionada {
+      background-color: #131d2d;
+      color: white;
+  }
+}

@@ -1,37 +1,12 @@
 .play-wrapper{
-  background: #6A5AE0; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #3a6073,
-    #6A5AE0
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #3a6073,
-    #6A5AE0
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: url(../../../../../assets/img/pattern-circles-desktop.png) center no-repeat, var(--brand-color);
+  background-size: cover;
 
-  .shape1{
-    position: fixed;
-    background-color: rgb(0, 0, 0);
-    transform: rotate(45deg);
-    opacity: 0.1;
-    top: -15vmin;
-    left: -15vmin;
-    min-width: 75vmin;
-    min-height: 75vmin;
+  @media (max-width: 768px) {
+    background: url(../../../../../assets/img/pattern-circles.png) center no-repeat, var(--brand-color);
+    background-size: cover;
   }
 
-  .shape2{
-    position: fixed;
-    border-radius: 50%;
-    background-color: rgb(0, 0, 0);
-    opacity: 0.1;
-    min-width: 75vmin;
-    min-height: 75vmin;
-    bottom: -15vmin;
-    right: -15vmin;
-  }
 
   .container {
     display: flex;
