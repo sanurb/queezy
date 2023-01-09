@@ -31,7 +31,7 @@
                               <td style="padding-bottom: 0; vertical-align: middle;">
                                   <i [routerLink]="['/viewQuiz', cuestionario.id]" class="ri-search-eye-line"></i>
                                   <i [routerLink]="['/stats', cuestionario.id]" class="ri-bar-chart-line"></i>
-                                  <i class="ri-delete-bin-2-line"></i>
+                                  <i (click)="eliminarCuestionario(cuestionario.id!)" class="ri-delete-bin-2-line"></i>
                               </td>
                           </tr>
                           </tbody>

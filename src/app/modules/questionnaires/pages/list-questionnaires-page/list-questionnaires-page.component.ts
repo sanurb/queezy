@@ -67,10 +67,11 @@ export class ListQuestionnairesPageComponent implements OnInit, OnDestroy {
       .eliminarCuestionario(id)
       .then((data) => {
         this.toast.success(
-          'El Cuestionario fue eliminado con exito',
+          'Cuestionario eliminado con exito',
           {
             dismissible: true,
-            duration: 3000
+            duration: 3000,
+            position: 'bottom-left'
           }
         );
         this.loading = false;
