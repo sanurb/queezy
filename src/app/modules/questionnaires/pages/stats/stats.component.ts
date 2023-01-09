@@ -62,7 +62,14 @@ export class StatsComponent implements OnInit, OnDestroy {
     this._userResponseService.deleteRespuestaUsuario(id).then(
       () => {
         this.loading = false;
-        this.toast.info('La respuesta fue eliminada');
+        this.toast.success(
+          'La respuesta fue eliminada',
+          {
+            dismissible: true,
+            duration: 3000,
+            position: 'bottom-left'
+          }
+        );
       },
       (error) => {
         console.log(error);
