@@ -1,0 +1,33 @@
+.user-response-wrapper{
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  padding: 24px 8px 0 8px;
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.list-group-item {
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  text-align: center;
+}
+
+.classCorrecta {
+  color: #155724;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+}
+
+.classIncorrecta {
+  color: #721c24;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}

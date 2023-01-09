@@ -16,7 +16,7 @@
   text-align: center !important;
 }
 
-.w100{
+.w100 {
   width: 100% !important;
 }
 
@@ -67,7 +67,7 @@
   --bs-badge-padding-y: 0.35em;
   --bs-badge-font-size: 0.75em;
   --bs-badge-font-weight: 700;
-  --bs-badge-color: #fff;
+  --bs-badge-color: var(--light-color);
   --bs-badge-border-radius: 0.375rem;
   display: inline-block;
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
@@ -84,4 +84,73 @@
 .bg-dark {
   --bs-dark-rgb: #212529;
   background: var(--bs-dark-rgb) !important;
+}
+
+//
+// Text
+//
+
+// Alignment
+
+.text-justify {
+  text-align: justify !important;
+}
+.text-wrap {
+  white-space: normal !important;
+}
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+// Transformation
+
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+// Contextual colors
+
+.text-white {
+  color: var(--light-color) !important;
+}
+.text-black {
+  color: var(--black-color) !important;
+}
+
+.text-black-50 {
+  color: rgba(var(--black-color), 0.5) !important;
+}
+.text-white-50 {
+  color: rgba(var(--light-color), 0.5) !important;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.text-break {
+  word-break: break-word !important; // Deprecated, but avoids issues with flex containers
+  word-wrap: break-word !important; // Used instead of `overflow-wrap` for IE & Edge Legacy
+}
+
+// Reset
+
+.text-reset {
+  color: inherit !important;
+}
+
+// Contextual backgrounds
+
+.bg-success {
+  background-color: var(--success-color) !important;
+}
+
+.bg-danger {
+  background-color: var(--danger-color) !important;
 }

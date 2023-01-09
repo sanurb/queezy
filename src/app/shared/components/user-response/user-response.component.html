@@ -1,1 +1,91 @@
-<p>user-response works!</p>
+<div class="user-response-wrapper">
+  <div *ngIf="loading" class="contenedor">
+    <app-spinner></app-spinner>
+  </div>
+  <div *ngIf="!loading" class="container">
+    <div class="text-center animate__animated animate__backInDown">
+      <h1 class="adaptive-font adaptive-font--large mt-5">Resumen</h1>
+      <div class="card mt-3">
+        <div class="card-body">
+          <div class="row mt-2">
+            <h3 class="col adaptive-font adaptive-font--medium">
+              Nombre: {{ respuestaCuestionario.nombreParticipante }}
+            </h3>
+            <h3 class="col adaptive-font adaptive-font--medium">
+              Puntuación: {{ respuestaCuestionario.puntosTotales }}
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <h3 class="adaptive-font adaptive-font--medium">Estadísticas</h3>
+        <div class="stat-box-big text-white bg-dark">
+          <div class="bg-image avg-time-container"></div>
+          <div class="value adaptive-font adaptive-font--medium">
+            {{ respuestaCuestionario.cantidadPreguntas }}
+          </div>
+          <div class="label">Preguntas</div>
+        </div>
+
+        <div class="stat-box-big text-white bg-dark">
+          <div class="bg-image correct-container"></div>
+          <div class="value adaptive-font adaptive-font--medium">
+            {{ respuestaCuestionario.cantidadCorrectas }}
+          </div>
+          <div class="label">Correctas</div>
+        </div>
+
+        <div class="stat-box-big text-white bg-dark">
+          <div class="bg-image incorrect-container"></div>
+          <div class="value adaptive-font adaptive-font--medium">
+            {{ respuestaCuestionario.cantidadIncorrectas }}
+          </div>
+          <div class="label">Incorrectas</div>
+        </div>
+      </div>
+
+      <div class="review-section-wrapper">
+        <div
+          *ngFor="let pregunta of respuestaCuestionario.listRespuestaUsuario"
+          class="row mt-3"
+        >
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-body text-center">
+                <h3 class="adaptive-font adaptive-font--medium">
+                  {{ pregunta.titulo }}
+                </h3>
+                <ul class="list-group">
+                  <li
+                    *ngFor="
+                      let respuesta of pregunta.listRepuestas;
+                      let i = index
+                    "
+                    class="list-group-item"
+                    [ngClass]="{
+                      classCorrecta:
+                        respuesta.esCorrecta === true &&
+                        i === pregunta.indexRespuestaSeleccionada,
+                      classIncorrecta:
+                        respuesta.esCorrecta === false &&
+                        i === pregunta.indexRespuestaSeleccionada
+                    }"
+                  >
+                    {{ respuesta.descripcion }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-3 mb-3">
+        <div class="col-lg-12">
+          <button (click)="volver()" class="btn btn--small btn--brand w100">
+            <p class="adaptive-font adaptive-font--medium">Volver a jugar</p>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
