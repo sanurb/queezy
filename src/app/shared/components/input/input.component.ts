@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlContainer, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -16,10 +16,6 @@ import { ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from 
   ]
 })
 export class InputComponent implements ControlValueAccessor {
-
-
-	@Input()
-	public parentForm!: FormGroup;
 
 	@Input()
 	public fieldName!: string;
@@ -44,11 +40,12 @@ export class InputComponent implements ControlValueAccessor {
 
 
 	get formField (): FormControl {
-		return this.parentForm?.get( this.fieldName ) as FormControl;
+		return this.controlContainer.control?.get(this.fieldName) as FormControl;
 	}
 
 
-	constructor () { }
+	constructor(private controlContainer: ControlContainer) { }
+
 
 
 	public writeValue ( value: string ): void {

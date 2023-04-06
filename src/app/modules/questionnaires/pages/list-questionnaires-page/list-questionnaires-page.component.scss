@@ -9,3 +9,32 @@
 .ri-delete-bin-2-line:hover{
   color: red;
 }
+
+.card-external{
+  min-height: 300px;
+  box-shadow: 0 0 3rem 0 rgba(82, 63, 105, .1);
+}
+
+.title{
+  font-size: var(--font-size-large);
+  color: var(--light-color);
+  padding: 2.5rem 0 1.2rem;
+}
+
+.no-questionnaires{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+  &__img{
+    width: 8rem;
+    height: 8rem;
+  }
+
+  &__text{
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    line-height: 140%;
+    margin-bottom: 1rem;
+  }
+}

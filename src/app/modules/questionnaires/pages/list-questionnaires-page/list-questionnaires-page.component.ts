@@ -1,3 +1,4 @@
+import { AuthService } from '@modules/auth/services/auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
@@ -12,16 +13,19 @@ import { QuizRequestService } from '@modules/questionnaires/services/quiz-reques
   styleUrls: ['./list-questionnaires-page.component.scss'],
 })
 export class ListQuestionnairesPageComponent implements OnInit, OnDestroy {
+
   suscriptionUser: Subscription = new Subscription();
   suscriptionQuizz: Subscription = new Subscription();
   listCuestionarios: Questionnaire[] = [];
   loading = false;
+  user$ = this.authService.currentUser$;
 
   constructor(
     private afAuth: AngularFireAuth,
     private router: Router,
     private _quizService: QuizRequestService,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {

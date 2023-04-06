@@ -1,17 +1,17 @@
 <ng-container *ngIf="formField.errors && (formField?.dirty || formField?.touched) ">
-	<span class="field-error"
+	<span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['required']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		Campo requerido.
 	</span>
 
-	<span class="field-error"
+	<span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['minlength']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		La cantidad minima de caracteres es {{formField.errors.minlength.requiredLength}}.
 	</span>
 
-	<span class="field-error"
+	<span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['maxlength']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		La cantidad máxima de caracteres es {{formField.errors.maxlength.requiredLength}}.
@@ -20,20 +20,20 @@
 
 
 
-  <span class="field-error"
+  <span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['email']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		Correo no valido.
 	</span>
 
 
-  <span class="field-error"
+  <span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['noWhitespaceRequired']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		No se permiten espacios.
 	</span>
 
-  <span class="field-error"
+  <span class="field-error" role="alert" aria-live="assertive"
 		*ngIf="formField.errors?.['notMatch']">
     <svg role="img" height="16" width="16" aria-label="Error:" class="exclamation-simbol" viewBox="0 0 16 16"><path d="M2.343 2.343a8 8 0 1111.314 11.314A8 8 0 012.343 2.343zm5.099 8.738a.773.773 0 00-.228.558.752.752 0 00.228.552.75.75 0 00.552.229.773.773 0 00.558-.229.743.743 0 00.234-.552.76.76 0 00-.234-.558.763.763 0 00-.558-.234.743.743 0 00-.552.234zm-.156-7.23l.312 6.072h.804l.3-6.072H7.286z"></path></svg>
 		Las direcciones de correo electrónico no coinciden.

@@ -31,7 +31,6 @@
       <form class="register-auth-form" [formGroup]="registerForm" (ngSubmit)="submit()">
 
         <app-input
-          [parentForm]="registerForm"
           fieldName="email"
           label="¿Cuál es tu correo electrónico?"
           formControlName="email"
@@ -41,7 +40,6 @@
         </app-input>
 
         <app-input
-          [parentForm]="registerForm"
           fieldName="email_confirmation"
           label="Confirma el correo electrónico"
           formControlName="email_confirmation"
@@ -51,7 +49,6 @@
         </app-input>
 
         <app-password-input
-          [parentForm]="registerForm"
           fieldName="password"
           label="Crea una contraseña"
           formControlName="password"

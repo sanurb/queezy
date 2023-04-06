@@ -28,7 +28,6 @@
       <form class="login-auth-form" [formGroup]="loginForm" (ngSubmit)="submit()">
 
         <app-input
-          [parentForm]="loginForm"
           fieldName="email"
           label="Correo electrónico"
           formControlName="email"
@@ -37,7 +36,6 @@
         </app-input>
 
         <app-password-input
-          [parentForm]="loginForm"
           fieldName="password"
           label="Contraseña"
           formControlName="password"

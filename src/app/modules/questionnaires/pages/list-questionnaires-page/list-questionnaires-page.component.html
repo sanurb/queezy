@@ -1,44 +1,62 @@
-<div *ngIf="loading" class="d-flex justify-content-center mt-3">
-    <app-spinner></app-spinner>
+<div class="list-questionnaires-wrapper">
+	<div class="floating-background-img">
+		<img src="../../../../../assets/img/dashboard/dash-min.png" alt="">
+	</div>
+	<div class="container">
+		<h2 class="title independent-title mb-3">Control Panel</h2>
+		<div class="card card-external">
+			<header class="card-header">
+				<small>Vamos a jugar</small>
+				<h2 *ngIf="user$ | async as user" class="adaptive-font adaptive-font--medium">Bienvenido de nuevo, {{ user.email }}</h2>
+			</header>
+			<div class="row mt-3">
+				<div class="col-lg-8 offset-lg-2">
+					<!-- Listado de cuestionarios -->
+					<div *ngIf="loading" class="d-flex justify-content-center mt-3">
+						<app-spinner></app-spinner>
+					</div>
+					<div *ngIf="listCuestionarios.length > 0 && !loading">
+						<div class="text-center">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="col">Titulo</th>
+										<th scope="col">Cant. Preguntas</th>
+										<th scope="col">Codigo</th>
+										<th scope="col">Acciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let cuestionario of listCuestionarios">
+										<td>{{ cuestionario.titulo }}</td>
+										<td>{{ cuestionario.cantPreguntas }}</td>
+										<td>
+											<span class="badge bg-dark">{{ cuestionario.codigo }}</span>
+										</td>
+										<td style="padding-bottom: 0; vertical-align: middle;">
+											<i [routerLink]="['/viewQuiz', cuestionario.id]" class="ri-search-eye-line"></i>
+											<i [routerLink]="['/stats', cuestionario.id]" class="ri-bar-chart-line"></i>
+											<i (click)="eliminarCuestionario(cuestionario.id!)" class="ri-delete-bin-2-line"></i>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+        <!-- Mensaje no hay cuestionarios -->
+				<div *ngIf="listCuestionarios.length == 0 && !loading" class="container">
+					<div class="row mt-3">
+						<div class="no-questionnaires">
+              <img class="no-questionnaires__img" src="https://cf.quizizz.com/img/empty-state/empty-state-created-content.png">
+              <p class="no-questionnaires__text">Crea tu primer cuestionario o lección</p>
+              <button routerLink="createQuiz" class="btn btn--small btn--brand btn-group-btn">
+                Crear un cuestionario
+              </button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<section class="list-questionnaires-wrapper">
-  <div class="floating-background-img">
-    <img src="../../../../../assets/img/dashboard/dash-min.png" alt="">
-  </div>
-
-  <div class="d-flex justify-content-center mt-3">
-  </div>
-
-  <div class="container">
-      <div class="row mt-3">
-          <div class="col-lg-8 offset-lg-2">
-              <div class="card">
-                  <div class="card-body text-center">
-                      <table class="table">
-                          <thead>
-                              <tr>
-                                  <th scope="col">Titulo</th>
-                                  <th scope="col">Cant. Preguntas</th>
-                                  <th scope="col">Codigo</th>
-                                  <th scope="col">Acciones</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                            <tr *ngFor="let cuestionario of listCuestionarios">
-                              <td>{{ cuestionario.titulo }}</td>
-                              <td>{{ cuestionario.cantPreguntas }}</td>
-                              <td><span class="badge bg-dark">{{ cuestionario.codigo }}</span></td>
-                              <td style="padding-bottom: 0; vertical-align: middle;">
-                                  <i [routerLink]="['/viewQuiz', cuestionario.id]" class="ri-search-eye-line"></i>
-                                  <i [routerLink]="['/stats', cuestionario.id]" class="ri-bar-chart-line"></i>
-                                  <i (click)="eliminarCuestionario(cuestionario.id!)" class="ri-delete-bin-2-line"></i>
-                              </td>
-                          </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
