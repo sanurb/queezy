@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "queezy:build:production"
+              "buildTarget": "queezy:build:production"
             },
             "development": {
-              "browserTarget": "queezy:build:development"
+              "buildTarget": "queezy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "queezy:build"
+            "buildTarget": "queezy:build"
           }
         },
         "test": {
