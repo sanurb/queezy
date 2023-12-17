@@ -1,5 +1,5 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, forwardRef, inject, Input, OnInit } from '@angular/core';
+import { ControlContainer, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-password-input',
@@ -14,8 +14,8 @@ import { FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class PasswordInputComponent {
-  @Input()
-  public parentForm!: FormGroup;
+
+  private readonly controlContainer = inject(ControlContainer);
 
   @Input()
   public fieldName!: string;
@@ -38,11 +38,9 @@ export class PasswordInputComponent {
 
   public touched!: () => void;
 
-  get formField(): FormControl {
-    return this.parentForm?.get(this.fieldName) as FormControl;
-  }
-
-  constructor() {}
+  get formField (): FormControl {
+		return this.controlContainer.control?.get(this.fieldName) as FormControl;
+	}
 
   public writeValue(value: string): void {
     this.value = value;

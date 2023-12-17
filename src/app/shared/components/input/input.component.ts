@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, forwardRef, inject, Input, OnInit } from '@angular/core';
 import { ControlContainer, ControlValueAccessor, FormControl, FormGroup, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -16,6 +16,8 @@ import { ControlContainer, ControlValueAccessor, FormControl, FormGroup, NG_VALU
   ]
 })
 export class InputComponent implements ControlValueAccessor {
+
+  private readonly controlContainer = inject(ControlContainer);
 
 	@Input()
 	public fieldName!: string;
@@ -42,11 +44,6 @@ export class InputComponent implements ControlValueAccessor {
 	get formField (): FormControl {
 		return this.controlContainer.control?.get(this.fieldName) as FormControl;
 	}
-
-
-	constructor(private controlContainer: ControlContainer) { }
-
-
 
 	public writeValue ( value: string ): void {
 		this.value = value;
